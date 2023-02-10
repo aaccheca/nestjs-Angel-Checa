@@ -58,3 +58,48 @@ export class CategoryEntity {
   }
 
 }
+
+@ManyToOne(() => ProductEntity, (product) => product.products)
+product: ProductEntity;
+
+@Column('varchar', {
+    name:'title',
+    unique:true,
+    comment:'Titulo de las product',
+  })
+  title: string;
+
+  @Column('varchar', {
+    name:'descripcion',
+    nullable:true,
+    comment:'Descripción del producto',
+  })
+  descripcion: string;
+
+
+  @Column('varchar', {
+    name:'precio',
+    nullable:true,
+    comment:'Descripción del producto',
+  })
+  precio: string;
+
+
+  @ManyToMany(() => CategoryEntity, (category) => category.products)
+  category: CategoryEntity;
+
+  @Column('varchar', {
+    name: 'title',
+    unique: true,
+    comment: 'titulo del producto',
+  })
+
+  price: number;
+  @Column('varchar', {
+    name: 'descripcion',
+    comment: 'Descripcion del producto',
+    nullable: true,
+  })
+  
+  descripcion: string;
+  
